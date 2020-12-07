@@ -1,4 +1,4 @@
-require "Itamigan/version"
+require "itamigan/version"
 
 module Itamigan
   class Error < StandardError; end
