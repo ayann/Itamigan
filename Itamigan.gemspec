@@ -3,12 +3,12 @@ require_relative 'lib/Itamigan/version'
 Gem::Specification.new do |spec|
   spec.name          = "Itamigan"
   spec.version       = Itamigan::VERSION
-  spec.authors       = ["TODO: Write your name"]
-  spec.email         = ["TODO: Write your email address"]
+  spec.authors       = ["Armand NIAMPA"]
+  spec.email         = ["armandniampa.developer@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Rails generator for contract and service object that use dry.rb gems.}
+  spec.description   = %q{Rails service, contract generator that use dry.rb gems such as dry-validation and dry-transaction.}
+  spec.homepage      = "https://github.com/ayann/Itamigan."
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
@@ -26,4 +26,6 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+
+  spec.add_dependency "rails", "~> 6.0.3", ">= 6.0.3.4"
 end
