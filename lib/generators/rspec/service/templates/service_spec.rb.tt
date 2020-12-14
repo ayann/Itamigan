@@ -1,24 +1,33 @@
-class <%= class_name -%>Service < ApplicationService
-  step :validate
-<% steps.each do |method| -%>
-  step :<%= method %>
-<% end -%>
+require 'rails_helper'
 
-<% if steps.present? -%>  protected<% end %>
+RSpec.describe <%= class_name -%>Service, type: :service do
+  subject(:service) { described_class.call(params: params) }
 
-  def validate(input)
-    validation = <%= class_name -%>Contract.call(input)
+  let(:params) { { foo: "Avengers", baz: "Endgame" } }
 
-    if validation.success?
-      Success(validation.to_h)
-    else
-      Failure(validation.errors.to_h)
+  describe 'service failure' do
+    context "when params are not valid"
+      it 'fails when params are empty' do
+        params = {}
+
+        expect(service).to be_failure
+      end
+
+      it 'fails when foo not provided' do
+        params.delete(:foo)
+
+        expect(service).to be_failure
+      end
     end
+
+    pending "add some examples to (or delete) #{__FILE__}"
   end
 
-<% steps.each do |method| -%>
-  def <%= method -%>; end
-<% end -%>
+  describe 'service success' do
+    it "should be success when params are valid" do
+      expect(service).to be_success
+    end
 
-  private
+    pending "add some examples to (or delete) #{__FILE__}"
+  end
 end
