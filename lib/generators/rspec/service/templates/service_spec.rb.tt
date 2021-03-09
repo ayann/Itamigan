@@ -6,7 +6,7 @@ RSpec.describe <%= class_name -%>Service, type: :service do
   let(:params) { { foo: "Avengers", baz: "Endgame" } }
 
   describe 'service failure' do
-    context "when params are not valid"
+    context "when params are not valid" do
       it 'fails when params are empty' do
         params = {}
 

@@ -4,7 +4,7 @@ class <%= class_name -%>Service < ApplicationService
   step :<%= method %>
 <% end -%>
 
-<% if steps.present? -%>  protected<% end %>
+  protected
 
   def validate(input)
     validation = <%= class_name -%>Contract.call(input)
